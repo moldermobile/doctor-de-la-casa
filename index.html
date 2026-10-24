@@ -1,0 +1,159 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Doctor de la casa · Oficio Fast</title>
+<meta name="theme-color" content="#1C1C1C">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;700&family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+<style>
+:root{--n:#1C1C1C;--n2:#2A2A2A;--a:#F5B800;--b:#F7F5F0;--t:#1C1C1C;--g:#6B6B6B;--v:#1F9D55;--am:#E0A100;--r:#D93025;--c:#fff;--l:#E4E0D6}
+*{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
+body{background:var(--b);color:var(--t);font:16px/1.45 Inter,system-ui,sans-serif;padding-bottom:84px;min-height:100vh}
+h1,h2,h3,.os{font-family:Oswald,Impact,sans-serif;text-transform:uppercase;letter-spacing:.3px;line-height:1.1}
+header{background:var(--n);color:#fff;padding:14px 16px 16px;position:sticky;top:0;z-index:5}
+.top{display:flex;align-items:center;gap:10px}
+.logo{width:34px;height:34px;background:var(--a);border-radius:8px;display:grid;place-items:center;font-size:19px}
+.top b{font-family:Oswald;font-size:20px;letter-spacing:.5px}.top b span{color:var(--a)}
+.top small{display:block;font-size:11px;color:#bbb;letter-spacing:1px;text-transform:uppercase}
+.back{background:none;border:0;color:var(--a);font:600 15px Inter;margin-right:2px;cursor:pointer;padding:6px 6px 6px 0}
+.buscar{margin-top:12px;position:relative}
+.buscar input{width:100%;border:0;border-radius:12px;padding:13px 14px 13px 42px;font:16px Inter;background:#fff;color:var(--t)}
+.buscar:before{content:"🔎";position:absolute;left:14px;top:12px;font-size:16px}
+main{padding:16px;max-width:640px;margin:0 auto}
+.hero{background:var(--n);color:#fff;border-radius:16px;padding:18px;margin-bottom:16px}
+.hero h1{font-size:28px}.hero h1 span{color:var(--a)}.hero p{color:#ccc;font-size:14px;margin-top:6px}
+.sec{font:700 13px Oswald;letter-spacing:1px;color:var(--g);text-transform:uppercase;margin:20px 0 10px}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.zona{background:#fff;border:1px solid var(--l);border-radius:14px;padding:14px 12px;cursor:pointer;text-align:left;font:inherit;color:inherit}
+.zona i{font-style:normal;font-size:28px;display:block}.zona b{font-family:Oswald;text-transform:uppercase;font-size:17px;display:block;margin-top:6px}
+.zona small{color:var(--g);font-size:12px}
+.emerg{display:flex;gap:10px;align-items:center;background:var(--r);color:#fff;border-radius:14px;padding:14px;cursor:pointer;border:0;width:100%;font:inherit;text-align:left}
+.emerg b{font-family:Oswald;font-size:18px;text-transform:uppercase;display:block}
+.item{display:flex;align-items:center;gap:12px;background:#fff;border:1px solid var(--l);border-radius:12px;padding:12px;margin-bottom:8px;cursor:pointer;width:100%;font:inherit;color:inherit;text-align:left}
+.item .num{background:var(--a);font:700 15px Oswald;min-width:38px;height:38px;border-radius:8px;display:grid;place-items:center}
+.item b{display:block;font-size:15px}.item small{color:var(--g);font-size:12px}
+.dot{width:12px;height:12px;border-radius:50%;flex:none;margin-left:auto}
+.f{background:var(--v)}.i{background:var(--am)}.r{background:var(--r)}
+.chip{display:inline-flex;align-items:center;gap:6px;font:700 12px Inter;padding:6px 10px;border-radius:99px;color:#fff;text-transform:uppercase;letter-spacing:.4px}
+.caso-h{background:var(--n);color:#fff;border-radius:16px;padding:18px;margin-bottom:12px}
+.caso-h .vol{color:var(--a);font:600 12px Inter;letter-spacing:1px;text-transform:uppercase}
+.caso-h h1{font-size:30px;margin:6px 0 10px}
+.q{background:var(--a);border-radius:12px;padding:12px 14px;font-weight:600;margin-bottom:12px}
+.card{background:#fff;border:1px solid var(--l);border-radius:14px;padding:14px;margin-bottom:12px}
+.card h3{font-size:17px;margin-bottom:8px}
+.card ul{list-style:none}.card li{padding:6px 0 6px 22px;position:relative;border-bottom:1px dashed var(--l)}.card li:last-child{border:0}
+.card li:before{content:"•";position:absolute;left:6px;color:var(--a);font-weight:800}
+ol.pasos{list-style:none;counter-reset:p}ol.pasos li{counter-increment:p;padding:8px 0 8px 40px;position:relative;border-bottom:1px dashed var(--l)}
+ol.pasos li:before{content:counter(p);position:absolute;left:0;top:7px;width:28px;height:28px;border-radius:50%;background:var(--n);color:var(--a);font:700 14px Oswald;display:grid;place-items:center}
+.mat label{display:flex;gap:10px;align-items:center;padding:8px 0;border-bottom:1px dashed var(--l);cursor:pointer}
+.mat input{width:22px;height:22px;accent-color:var(--n)}
+.ok{border-left:6px solid var(--v)}.ok h3{color:var(--v)}
+.err li:before{content:"✕";color:var(--r)}
+.alerta{background:#FDECEA;border:1px solid #F5C2BE;border-left:6px solid var(--r)}.alerta h3{color:var(--r)}
+.tip{border-left:6px solid var(--a)}
+.libro{display:flex;gap:12px;align-items:center;background:var(--n);color:#fff;border-radius:14px;padding:14px}
+.libro .pg{background:var(--a);color:var(--n);font:700 22px Oswald;border-radius:10px;padding:8px 12px;text-align:center;line-height:1}
+.libro .pg small{display:block;font:600 10px Inter;letter-spacing:1px}
+.btn{display:block;width:100%;border:0;border-radius:12px;padding:14px;font:700 16px Inter;cursor:pointer;margin-top:10px;text-align:center;text-decoration:none}
+.btn.a{background:var(--a);color:var(--n)}.btn.n{background:var(--n);color:#fff}.btn.w{background:#fff;color:var(--n);border:1px solid var(--l)}
+.vol-row{display:flex;gap:12px;align-items:center;background:#fff;border:1px solid var(--l);border-radius:12px;padding:12px;margin-bottom:8px}
+.vol-row img{width:52px;height:78px;object-fit:cover;border-radius:4px;flex:none;box-shadow:0 2px 6px #0003}
+.vol-row.no{opacity:.7}.vol-row .est{margin-left:auto;font:700 11px Inter;text-transform:uppercase;padding:5px 8px;border-radius:99px;background:#E8F5EC;color:var(--v);white-space:nowrap}
+.vol-row.no .est{background:#FFF4D6;color:#8A6500}
+nav{position:fixed;bottom:0;left:0;right:0;background:var(--n);display:flex;justify-content:space-around;padding:8px 4px calc(8px + env(safe-area-inset-bottom));z-index:9}
+nav button{background:none;border:0;color:#bbb;font:600 11px Inter;display:flex;flex-direction:column;align-items:center;gap:2px;cursor:pointer;min-width:64px;position:relative}
+nav button i{font-style:normal;font-size:21px}nav button.on{color:var(--a)}
+.badge{position:absolute;top:-2px;right:12px;background:var(--a);color:var(--n);border-radius:99px;font:800 10px Inter;padding:1px 5px}
+.vacio{text-align:center;color:var(--g);padding:30px 10px}
+.semaforo{display:flex;flex-direction:column;gap:6px;font-size:13px}
+.semaforo div{display:flex;gap:8px;align-items:center}.semaforo .dot{margin-left:0}
+.pie{text-align:center;color:var(--g);font-size:12px;margin-top:24px}
+.check label{display:flex;gap:10px;align-items:center;padding:7px 0;border-bottom:1px dashed var(--l)}
+.check input{width:22px;height:22px;accent-color:var(--v)}
+.toast{position:fixed;left:50%;bottom:96px;transform:translateX(-50%);background:var(--n);color:#fff;padding:10px 16px;border-radius:99px;font-size:14px;opacity:0;transition:.25s;pointer-events:none;z-index:20}
+.toast.on{opacity:1}
+</style>
+</head>
+<body>
+<header>
+  <div class="top"><button class="back" id="back" hidden>‹ Volver</button><div class="logo">🏠</div><div><b>OFICIO <span>FAST</span></b><small>Doctor de la casa</small></div></div>
+  <div class="buscar" id="bw"><input id="q" type="search" placeholder="¿Qué se rompió? Ej: canilla gotea" autocomplete="off"></div>
+</header>
+<main id="app"></main>
+<nav>
+  <button data-go="" class="on"><i>🩺</i>Inicio</button>
+  <button data-go="lista"><i>🛒</i>Ferretería<span class="badge" id="nb" hidden></span></button>
+  <button data-go="mant"><i>📅</i>Mantenimiento</button>
+  <button data-go="libros"><i>📚</i>Mis libros</button>
+</nav>
+<div class="toast" id="toast"></div>
+<script src="casos.js"></script>
+<script>
+const $=s=>document.querySelector(s), app=$('#app');
+const DIF={f:['Fácil','f'],i:['Intermedio','i'],r:['Llamá a un profesional','r']};
+const store={get(k,d){try{return JSON.parse(localStorage.getItem('of_'+k))??d}catch(e){return d}},set(k,v){try{localStorage.setItem('of_'+k,JSON.stringify(v))}catch(e){}}};
+let lista=store.get('lista',[]);
+const vol=n=>VOLS.find(v=>v.n==n);
+const id=c=>c.v+'-'+c.n;
+const pad=n=>String(n).padStart(2,'0');
+const esc=s=>String(s).replace(/[&<>"]/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[m]));
+const norm=s=>s.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'');
+function toast(t){const e=$('#toast');e.textContent=t;e.classList.add('on');setTimeout(()=>e.classList.remove('on'),1600)}
+function badge(){const b=$('#nb');b.hidden=!lista.length;b.textContent=lista.length}
+function item(c){const d=DIF[c.d];return `<button class="item" onclick="go('caso/${id(c)}')"><span class="num">${pad(c.n)}</span><span><b>${esc(c.t)}</b><small>Vol. ${pad(c.v)} · ${esc(vol(c.v).t)} · pág. ${c.pg}</small></span><span class="dot ${d[1]}" title="${d[0]}"></span></button>`}
+function inicio(){
+  app.innerHTML=`<div class="hero"><h1>¿Qué se <span>rompió</span>?</h1><p>Elegí dónde está el problema. Te decimos qué es, si lo podés hacer vos, qué comprar y en qué página del manual está.</p></div>
+  <button class="emerg" onclick="go('emerg')"><span style="font-size:28px">🚨</span><span><b>Es una urgencia</b><small>Agua que sale, olor a gas, chispas…</small></span></button>
+  <div class="sec">¿Dónde es?</div>
+  <div class="grid">${ZONAS.map(z=>{const n=CASOS.filter(c=>c.z==z.id).length;return `<button class="zona" onclick="go('zona/${z.id}')"><i>${z.i}</i><b>${z.t}</b><small>${n} arreglos</small></button>`}).join('')}</div>
+  <div class="sec">El semáforo</div>
+  <div class="card semaforo"><div><span class="dot f"></span><b>Fácil</b> · lo hacés en menos de 30 minutos</div><div><span class="dot i"></span><b>Intermedio</b> · paciencia y la herramienta justa</div><div><span class="dot r"></span><b>Profesional</b> · te decimos a quién llamar</div></div>
+  <p class="pie">El equipo de Oficio Fast</p>`;
+}
+function zona(z){const Z=ZONAS.find(x=>x.id==z);app.innerHTML=`<h2 style="font-size:26px;margin-bottom:4px">${Z.i} ${Z.t}</h2><p style="color:var(--g);margin-bottom:14px">Tocá el problema que tenés.</p>${CASOS.filter(c=>c.z==z).map(item).join('')}`}
+function caso(k){
+  const c=CASOS.find(x=>id(x)==k); if(!c) return inicio(); const d=DIF[c.d];
+  const L=s=>s.map(x=>`<li>${esc(x)}</li>`).join('');
+  app.innerHTML=`<div class="caso-h"><div class="vol">Vol. ${pad(c.v)} · ${esc(vol(c.v).t)} · Caso ${pad(c.n)}</div><h1>${esc(c.t)}</h1><span class="chip ${d[1]}">● ${d[0]}</span></div>
+  <div class="q">${esc(c.q)}</div>
+  <div class="card"><h3>¿Te pasa esto?</h3><ul>${L(c.s)}</ul></div>
+  ${c.m.length?`<div class="card mat"><h3>Qué necesitás</h3>${c.m.map(m=>`<label><input type="checkbox" ${lista.some(x=>x.t==m)?'checked':''} onchange="tog(this,'${esc(m).replace(/'/g,"\\'")}','${esc(c.t).replace(/'/g,"\\'")}')"> ${esc(m)}</label>`).join('')}<button class="btn w" onclick="todos('${k}')">＋ Sumar todo a mi lista de ferretería</button></div>`:''}
+  <div class="card"><h3>Paso a paso</h3><ol class="pasos">${L(c.p)}</ol></div>
+  <div class="card ok"><h3>✓ Comprobalo</h3><p>${esc(c.ok)}</p></div>
+  ${c.e&&c.e.length?`<div class="card err"><h3>Errores frecuentes</h3><ul>${L(c.e)}</ul></div>`:''}
+  ${c.tip?`<div class="card tip"><h3>💡 Tip</h3><p>${esc(c.tip)}</p></div>`:''}
+  ${c.r?`<div class="card alerta"><h3>⚠ Cuándo llamar a un profesional</h3><p>${esc(c.r)}</p></div>`:''}
+  <div class="libro"><div class="pg"><small>PÁG.</small>${c.pg}</div><div><b class="os" style="font-size:17px">Las fotos de cada paso</b><br><small style="color:#ccc">Están en el Vol. ${pad(c.v)} · ${esc(vol(c.v).t)}, desde la página ${c.pg}.</small></div></div>
+  <p class="pie">Esta guía es orientativa. Ante la duda, consultá a un profesional matriculado.</p>`;
+  scrollTo(0,0);
+}
+function tog(el,m,c){if(el.checked){if(!lista.some(x=>x.t==m))lista.push({t:m,c,ok:false})}else lista=lista.filter(x=>x.t!=m);store.set('lista',lista);badge()}
+function todos(k){const c=CASOS.find(x=>id(x)==k);c.m.forEach(m=>{if(!lista.some(x=>x.t==m))lista.push({t:m,c:c.t,ok:false})});store.set('lista',lista);badge();caso(k);toast('Sumado a tu lista')}
+function verLista(){
+  if(!lista.length){app.innerHTML=`<h2 style="font-size:26px">🛒 Mi lista de ferretería</h2><div class="vacio">Todavía está vacía.<br>Entrá a un arreglo y tocá «Sumar todo a mi lista».</div>`;return}
+  app.innerHTML=`<h2 style="font-size:26px;margin-bottom:4px">🛒 Mi lista de ferretería</h2><p style="color:var(--g);margin-bottom:12px">Mostrala en el mostrador. Tachá lo que ya compraste.</p>
+  <div class="card check">${lista.map((x,i)=>`<label><input type="checkbox" ${x.ok?'checked':''} onchange="lista[${i}].ok=this.checked;store.set('lista',lista)"> <span><b>${esc(x.t)}</b><br><small style="color:var(--g)">${esc(x.c)}</small></span></label>`).join('')}</div>
+  <div class="card tip"><p><b>Regla de oro:</b> llevá la pieza vieja y pedí la misma medida.</p></div>
+  <button class="btn a" onclick="compartir()">Mandármela por WhatsApp</button>
+  <button class="btn w" onclick="if(confirmar())verLista()">Vaciar la lista</button>`;
+}
+function confirmar(){lista=[];store.set('lista',lista);badge();return true}
+function compartir(){const t='Lista de ferretería (Oficio Fast):\n'+lista.map(x=>'• '+x.t).join('\n');if(navigator.share)navigator.share({text:t}).catch(()=>{});else location.href='https://wa.me/?text='+encodeURIComponent(t)}
+function emerg(){app.innerHTML=`<h2 style="font-size:26px;color:var(--r);margin-bottom:12px">🚨 Urgencias</h2>${EMERGENCIAS.map(e=>`<div class="card alerta"><h3>${esc(e.t)}</h3><p>${esc(e.a)}</p></div>`).join('')}<div class="card tip"><p><b>Hacé el simulacro hoy:</b> encontrá tu llave de paso general y la térmica antes de necesitarlas.</p></div>`}
+function mant(){const h=store.get('mant',{});app.innerHTML=`<h2 style="font-size:26px;margin-bottom:4px">📅 Mantenimiento</h2><p style="color:var(--g);margin-bottom:12px">Poco tiempo cada tanto te evita la mayoría de las urgencias.</p>${MANTENIMIENTO.map((g,gi)=>`<div class="card check"><h3>${esc(g.t)}</h3>${g.l.map((x,i)=>`<label><input type="checkbox" ${h[gi+'-'+i]?'checked':''} onchange="mk('${gi}-${i}',this.checked)"> ${esc(x)}</label>`).join('')}</div>`).join('')}<button class="btn w" onclick="store.set('mant',{});mant()">Empezar de nuevo</button>`}
+function mk(k,v){const h=store.get('mant',{});h[k]=v;store.set('mant',h)}
+function libros(){app.innerHTML=`<h2 style="font-size:26px;margin-bottom:12px">📚 Colección Oficio Fast</h2>${VOLS.map(v=>`<div class="vol-row ${v.ok?'':'no'}"><img src="img/tapa-${pad(v.n)}.jpg" alt="Vol. ${pad(v.n)}" loading="lazy"><div><b class="os" style="font-size:17px">${esc(v.t)}</b><br><small style="color:var(--g)">${v.ok?CASOS.filter(c=>c.v==v.n).length+' arreglos en la app':'Llega a tu carpeta de descarga antes del martes 27/10'}</small></div><span class="est">${v.ok?'Disponible':'Próximamente'}</span></div>`).join('')}<p class="pie">Los PDF de cada volumen están en la carpeta del link de tu mail de compra.<br>El equipo de Oficio Fast</p>`}
+function buscar(t){t=norm(t.trim());if(!t)return route();const w=t.split(/\s+/);const r=CASOS.map(c=>{const h=norm(c.t+' '+c.k+' '+c.s.join(' '));return[c,w.filter(x=>h.includes(x)).length]}).filter(x=>x[1]).sort((a,b)=>b[1]-a[1]).map(x=>x[0]);app.innerHTML=`<div class="sec">${r.length} resultado${r.length==1?'':'s'}</div>${r.map(item).join('')||'<div class="vacio">No encontramos ese problema.<br>Probá con otras palabras o elegí la zona desde el inicio.</div>'}`}
+function go(h){location.hash=h}
+function route(){const h=location.hash.slice(1),[a,b]=h.split('/');$('#back').hidden=!h;$('#bw').hidden=(a=='caso');
+  document.querySelectorAll('nav button').forEach(x=>x.classList.toggle('on',x.dataset.go==(a||'')));
+  ({'':inicio,zona:()=>zona(b),caso:()=>caso(b),lista:verLista,emerg,mant,libros}[a||'']||inicio)();if(a!='caso')scrollTo(0,0)}
+$('#back').onclick=()=>history.length>1?history.back():go('');
+$('#q').oninput=e=>buscar(e.target.value);
+document.querySelectorAll('nav button').forEach(b=>b.onclick=()=>{$('#q').value='';go(b.dataset.go)});
+addEventListener('hashchange',route);badge();route();
+</script>
+</body>
+</html>
